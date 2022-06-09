@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import paint from '../../assets/paint.webm';
 import noise from '../../assets/noise.mp4';
 
-const CircleVid = styled.video`
+const CircleVid = styled(motion.video)`
     width: 1100px;
     height: 1100px;
     border-radius: 50%;
@@ -16,7 +17,13 @@ const CircleVid = styled.video`
 
 const Video1 = () => {
     return ( 
-        <CircleVid autoPlay loop mute>
+        <CircleVid 
+            initial={{opacity: 0}} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 2}} 
+            autoPlay 
+            loop 
+            mute>
             <source src={paint} type="video/webm" />
         </CircleVid>
     )
@@ -24,7 +31,13 @@ const Video1 = () => {
 
 const Video2 = () => {
     return ( 
-        <CircleVid autoPlay loop mute>
+        <CircleVid 
+        initial={{opacity: 0}} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 2}} 
+        autoPlay 
+        loop 
+        mute>
             <source src={noise} type="video/webm" />
         </CircleVid>
     )
@@ -32,7 +45,13 @@ const Video2 = () => {
 
 const Video3 = () => {
     return ( 
-        <CircleVid autoPlay loop mute>
+        <CircleVid 
+        initial={{opacity: 0}} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 2}} 
+        autoPlay 
+        loop 
+        mute>
             <source src={paint} type="video/webm" />
         </CircleVid>
     )
