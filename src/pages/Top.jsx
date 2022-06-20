@@ -51,6 +51,7 @@ const Projects = styled(motion.div)`
       border-radius: 50%;
       font-style: normal;
       background-color: #f1f7e6;
+      cursor: pointer;
     }
     i:hover {
       box-shadow: 0 0 10px 0 rgb(255, 255, 255);

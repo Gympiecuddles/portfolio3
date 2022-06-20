@@ -19,6 +19,7 @@ const InfoRight = styled(motion.article)`
     font-size: 3em;
     a {
         display: block;
+        cursor: pointer;
     }
 `;
 const Text1 = () => {
