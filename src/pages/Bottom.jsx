@@ -19,9 +19,108 @@ const BottomBox = styled(motion.section)`
     align-self: flex-start;
     margin-top: 60px;
     font-size: 3em;
-    z-index: 1;
+    z-index: 3;
   }
-  div {
+`;
+
+const MotionCard1 = motion.div;
+const Card1 = styled(MotionCard1)`
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    outline: 5px #006e5f solid;
+    outline-offset: -20px;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px 0 #e7e7e7;
+    overflow: hidden;
+    cursor: grab;
+    z-index: 0;
+    img {
+      position: absolute;
+      bottom: 0;
+      width: 450px;
+      height: 680px;
+      object-fit: cover;
+      object-position: -37px 10px;
+    }
+    span {
+      position: absolute;
+      bottom: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      height: 100px;
+      outline: 2px #3d3c00 solid;
+      outline-offset: -14px;
+      border-radius: 5px;
+      background-color: #006e5f;
+      z-index: 3;
+      h4 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 23px;
+        color: #f2fedc;
+      }
+      p {
+        margin: 5px;
+        font-size: 17px;
+        color: #f2fedc;
+      }
+    }
+`;
+
+const MotionCard2 = motion.div;
+const Card2 = styled(MotionCard2)`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px 0 #e7e7e7;
+    overflow: hidden;
+    cursor: grab;
+    z-index: 0;
+    h4 {
+      margin-top: 35px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    p {
+      margin: 30px;
+      margin-left: 40px;
+      font-size: 17px;
+    }
+`;
+
+const MotionCard3 = motion.div;
+const Card3 = styled(MotionCard3)`
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 10px 50px 0 #e7e7e7;
+    overflow: hidden;
+    cursor: grab;
+    z-index: 0;
+    p {
+      margin: 30px;
+      font-size: 17px;
+    }
+`;
+
+const MotionArrowBox = motion.div;
+const ArrowBox = styled(MotionArrowBox)`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -32,22 +131,13 @@ const BottomBox = styled(motion.section)`
     box-shadow: 0 10px 50px 0 #e7e7e7;
     overflow: hidden;
     cursor: grab;
-    z-index: 1;
+    z-index: 0;
     h5 {
       position: absolute;
       bottom: -20%;
       font-size: 1.2em;
       color: #888787;
     }
-    h3 {
-      align-self: center;
-      padding: 100px;
-      border: solid 1px #000000;
-    }
-    p {
-
-    }
-  }
 `;
 
 const UpLeftArrow = styled(BsArrowUpLeft)`
@@ -84,61 +174,103 @@ const DownRightArrow = styled(BsArrowDownRight)`
 
 export default function Bottom() {
   const [isVisible, setIsVisible] = useState(true);
+  const [ZIndex1, setZIndex1] = useState(false);
+  const [ZIndex2, setZIndex2] = useState(false);
+  const [ZIndex3, setZIndex3] = useState(false);
 
-  const handleClick = () => {setIsVisible(false)};
+  const handleVisible = () => {setIsVisible(false)};
+  const handleZIndex1 = () => {setZIndex1(true); setZIndex2(false); setZIndex3(false);};
+  const handleZIndex2 = () => {setZIndex1(false); setZIndex2(true); setZIndex3(false);};
+  const handleZIndex3 = () => {setZIndex1(false); setZIndex2(false); setZIndex3(true);};
+
 
   return (
     <BottomBox>
-        <h2>Dig deeper into who I am</h2>
+        <h2>Dig deeper</h2>
         <AnimatePresence>
           {isVisible && 
-            <motion.div 
-            style={{ backgroundColor: "#ffffff00", overflow: "visible" }}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{ durration: 2 }}
+            <ArrowBox 
+              style={{ backgroundColor: "#ffffff00", overflow: "visible" }}
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
+              transition={{ durration: 2 }}
             >
               <UpLeftArrow />
               <UpRightArrow/>
               <DownLeftArrow />
               <DownRightArrow />
               <h5>Drag Me</h5>
-            </motion.div>
+            </ArrowBox>
           }
         </AnimatePresence>
-        <motion.div 
+        <Card3 
+            drag
+            dragConstraints={{ top: -400, right: 1100, bottom: 355, left: -1100 }}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+            dragElastic={0.5}
+            whileTap={{ cursor: "grabbing", scale: .9}}
+            onTapStart={handleZIndex1}
+            style={{ zIndex: ZIndex1 ? 1 : 0 }}
+          >
+          <h4>Technologies I work with</h4>
+          <ul>
+            <li>React</li>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>Styled Components</li>
+            <li>Framer Motion</li>
+            <li>Github</li>
+            
+          </ul>
+        </Card3>
+        <Card2 
             drag
             dragConstraints={{ top: -400, right: 1100, bottom: 355, left: -1100 }}
             dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             dragElastic={0.5}
             whileTap={{ cursor: "grabbing", scale: .9 }}
+            onTapStart={handleZIndex2}
+            style={{ zIndex: ZIndex2 ? 1 : 0 }}
           >
-          
-        </motion.div>
-        <motion.div 
-            drag
-            dragConstraints={{ top: -400, right: 1100, bottom: 355, left: -1100 }}
-            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-            dragElastic={0.5}
-            whileTap={{ cursor: "grabbing", scale: .9 }}
-          >
+          <h4>Who am I?</h4>
           <p>
-            I'm a creative developer with years of experience in building products and 
-            appealing web experiences. I've collaborated with individuals and teams to 
-            build experiences for SMEs and large enterprises including Wise, Google, 
-            Interswitch and Intelia.
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla.  
           </p>
-        </motion.div> 
-        <motion.div 
+          <p>
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla.  
+          </p>
+          <p>
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla. 
+            South Florida based web developer, coding my way to Valhalla.  
+          </p>
+        </Card2> 
+        <Card1 
             drag
             dragConstraints={{ top: -400, right: 1100, bottom: 355, left: -1100 }}
             dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             dragElastic={0.5}
             whileTap={{ cursor: "grabbing", scale: .9 }}
-            onTap={handleClick}
+            onTap={handleVisible}
+            onTapStart={handleZIndex3}
+            style={{ zIndex: ZIndex3 ? 1 : 0 }}
           >
-          <h3>Drag Me</h3>
-        </motion.div>  
+          <img src={me} alt="" draggable={false} />
+          <span>
+            <h4>Richard Schembri</h4>
+            <p>Software Engineer</p>
+          </span>
+        </Card1>  
     </BottomBox>
   );
 }
