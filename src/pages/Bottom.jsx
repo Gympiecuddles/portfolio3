@@ -5,6 +5,8 @@ import { BsArrowUpLeft, BsArrowUpRight, BsArrowDownLeft, BsArrowDownRight } from
 
 import me from '../assets/me.png';
 
+import Tech from './components/Tech'
+
 const BottomBox = styled(motion.section)`
   display: flex;
   flex-direction: row;
@@ -102,9 +104,6 @@ const Card2 = styled(MotionCard2)`
 const MotionCard3 = motion.div;
 const Card3 = styled(MotionCard3)`
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 800px;
     height: 600px;
     background-color: #fff;
@@ -113,11 +112,7 @@ const Card3 = styled(MotionCard3)`
     overflow: hidden;
     cursor: grab;
     z-index: 0;
-    p {
-      margin: 30px;
-      font-size: 17px;
-    }
-`;
+    `;
 
 const MotionArrowBox = motion.div;
 const ArrowBox = styled(MotionArrowBox)`
@@ -212,17 +207,8 @@ export default function Bottom() {
             onTapStart={handleZIndex1}
             style={{ zIndex: ZIndex1 ? 1 : 0 }}
           >
-          <h4>Technologies I work with</h4>
-          <ul>
-            <li>React</li>
-            <li>CSS</li>
-            <li>HTML</li>
-            <li>Styled Components</li>
-            <li>Framer Motion</li>
-            <li>Github</li>
-            
-          </ul>
-        </Card3>
+          <Tech />
+        </Card3>          
         <Card2 
             drag
             dragConstraints={{ top: -400, right: 1100, bottom: 355, left: -1100 }}
