@@ -21,7 +21,7 @@ const BottomBox = styled(motion.section)`
     align-self: flex-start;
     margin-top: 60px;
     font-size: 3em;
-    z-index: 3;
+    z-index: 0;
   }
 `;
 
@@ -84,19 +84,34 @@ const Card2 = styled(MotionCard2)`
     width: 800px;
     height: 600px;
     background-color: #fff;
+    outline: 5px #006e5f solid;
+    outline-offset: -20px;
     border-radius: 30px;
     box-shadow: 0 10px 50px 0 #e7e7e7;
     overflow: hidden;
     cursor: grab;
     z-index: 0;
-    h4 {
-      margin-top: 35px;
-      margin-bottom: 10px;
-      font-size: 20px;
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+      height: 50px;
+      outline: 2px #3d3c00 solid;
+      outline-offset: -7px;
+      border-radius: 5px;
+      background-color: #006e5f;
+      z-index: 3;
+      h4 {
+        margin-top: 9px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color: #f2fedc;
+      }
     }
     p {
-      margin: 30px;
-      margin-left: 40px;
+      margin: 40px;
+      margin-left: 50px;
       font-size: 17px;
     }
 `;
@@ -218,7 +233,9 @@ export default function Bottom() {
             onTapStart={handleZIndex2}
             style={{ zIndex: ZIndex2 ? 1 : 0 }}
           >
-          <h4>Who am I?</h4>
+          <span>
+            <h4>Who am I?</h4>
+          </span>          
           <p>
             South Florida based web developer, coding my way to Valhalla. 
             South Florida based web developer, coding my way to Valhalla. 
