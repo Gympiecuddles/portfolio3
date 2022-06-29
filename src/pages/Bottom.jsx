@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { BsArrowUpLeft, BsArrowUpRight, BsArrowDownLeft, BsArrowDownRight } from 'react-icons/bs'
 
 import me from '../assets/me.png';
 
 import Tech from './components/Tech'
+import Title from './components/Title'
 
 const BottomBox = styled(motion.section)`
   display: flex;
@@ -63,13 +64,7 @@ const Card1 = styled(MotionCard1)`
       z-index: 3;
       h4 {
         margin-top: 15px;
-        margin-bottom: 5px;
         font-size: 23px;
-        color: #f2fedc;
-      }
-      p {
-        margin: 5px;
-        font-size: 17px;
         color: #f2fedc;
       }
     }
@@ -182,6 +177,24 @@ const DownRightArrow = styled(BsArrowDownRight)`
     color: #888787;
 `;
 
+const ButtonBox = styled.div`
+  position: absolute;
+  bottom: 50px;
+  z-index: 4;
+  button {
+    margin: 20px;
+    width: 70px;
+    height: 30px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+  }
+`
+
 export default function Bottom() {
   const [isVisible, setIsVisible] = useState(true);
   const [ZIndex1, setZIndex1] = useState(false);
@@ -193,6 +206,24 @@ export default function Bottom() {
   const handleZIndex2 = () => {setZIndex1(false); setZIndex2(true); setZIndex3(false);};
   const handleZIndex3 = () => {setZIndex1(false); setZIndex2(false); setZIndex3(true);};
 
+  const cardControls1 = useAnimation();
+  const cardControls2 = useAnimation();
+  const cardControls3 = useAnimation();
+
+  const handleClickReset = () => {
+    cardControls1.start({ x: 0, y: 0 });
+    cardControls2.start({ x: 0, y: 0 });
+    cardControls3.start({ x: 0, y: 0 });
+    setZIndex1(false);
+    setZIndex2(false);
+    setZIndex3(false);
+  }
+
+  const handleClickDisplay = () => {
+    cardControls1.start({ x: -810, y: 0 });
+    cardControls2.start({ x: 0, y: 0 });
+    cardControls3.start({ x: 810, y: 0 });
+  }
 
   return (
     <BottomBox>
@@ -212,6 +243,12 @@ export default function Bottom() {
               <h5>Drag Me</h5>
             </ArrowBox>
           }
+          {!isVisible &&
+            <ButtonBox>  
+            <motion.button onClick={handleClickReset} whileHover={{boxShadow: "0 0 10px #fff24e", color: "#fff24e"}}>Reset</motion.button>
+            <motion.button onClick={handleClickDisplay} whileHover={{boxShadow: "0 0 10px #fff24e", color: "#fff24e"}}>Display</motion.button>
+            </ButtonBox>
+          }
         </AnimatePresence>
         <Card3 
             drag
@@ -221,6 +258,7 @@ export default function Bottom() {
             whileTap={{ cursor: "grabbing", scale: .9}}
             onTapStart={handleZIndex1}
             style={{ zIndex: ZIndex1 ? 1 : 0 }}
+            animate={cardControls3}
           >
           <Tech />
         </Card3>          
@@ -232,6 +270,7 @@ export default function Bottom() {
             whileTap={{ cursor: "grabbing", scale: .9 }}
             onTapStart={handleZIndex2}
             style={{ zIndex: ZIndex2 ? 1 : 0 }}
+            animate={cardControls2}
           >
           <span>
             <h4>Who am I?</h4>
@@ -267,13 +306,14 @@ export default function Bottom() {
             onTap={handleVisible}
             onTapStart={handleZIndex3}
             style={{ zIndex: ZIndex3 ? 1 : 0 }}
+            animate={cardControls1}
           >
           <img src={me} alt="" draggable={false} />
           <span>
             <h4>Richard Schembri</h4>
-            <p>Software Engineer</p>
+            <Title titleList={["Web Developer", "Software Engineer", "Programmer", "Coder"]} />
           </span>
-        </Card1>  
+        </Card1>
     </BottomBox>
   );
 }

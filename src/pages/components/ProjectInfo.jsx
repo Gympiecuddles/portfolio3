@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import '@fontsource/titillium-web/700.css';
 
 const InfoLeft = styled(motion.article)`
     order: 1;
     width: 400px;
-    h2{
+    h2 {
         font-size: 3em;
+        font-weight: 600;
+        font-family: "Titillium Web", sans-serif;
     }
-    p{
-        font-size: 2em;
+    p {
+        font-size: 1.8em;
     }
 `;
 
@@ -19,6 +22,7 @@ const InfoRight = styled(motion.article)`
     font-size: 3em;
     a {
         display: block;
+        text-decoration: underline;
         cursor: pointer;
     }
 `;
