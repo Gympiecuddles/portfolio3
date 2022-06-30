@@ -7,6 +7,7 @@ import me from '../assets/me.png';
 
 import Tech from './components/Tech'
 import Title from './components/Title'
+import Contact from "./components/Contact";
 
 const BottomBox = styled(motion.section)`
   display: flex;
@@ -135,7 +136,6 @@ const ArrowBox = styled(MotionArrowBox)`
     border-radius: 30px;
     box-shadow: 0 10px 50px 0 #e7e7e7;
     overflow: hidden;
-    cursor: grab;
     z-index: 0;
     h5 {
       position: absolute;

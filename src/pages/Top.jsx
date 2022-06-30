@@ -42,6 +42,7 @@ const Projects = styled(motion.div)`
     border-radius: 50%;
     background-color: #f1f7e6;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    user-select: none;
     i {
       display: flex;
       justify-content: center;
