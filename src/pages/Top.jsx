@@ -128,7 +128,7 @@ export default function Top() {
   
   return (
     <TopBox>
-      <span>
+      <motion.span initial={{scale: 0}} whileInView={{scale: 1}} transition={{duration: 2}}>
         <Projects 
           variants={BoxRotate1}  
           animate={rotateControls} 
@@ -178,7 +178,7 @@ export default function Top() {
             </motion.p>
         </Projects>
         <ProjectVids project={projectTracker} />
-      </span>
+      </motion.span>
       <ProjectInfo project={projectTracker} />
     </TopBox>
   );

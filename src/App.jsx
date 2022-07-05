@@ -7,6 +7,7 @@ import paint from "./assets/paint.webm";
 import Bottom from "./pages/Bottom";
 import Top from "./pages/Top";
 import Contact from "./pages/components/Contact";
+import AnimatedText from './pages/components/AnimatedText';
 
 const HomeBox = styled.div`
   position: relative;
@@ -26,7 +27,7 @@ const Video = styled.video`
     z-index: 0;
 `;
 
-const Name = styled(motion.p)`
+const Name = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -38,7 +39,7 @@ const Name = styled(motion.p)`
   width: 100%;
   font-family: "Titillium", sans-serif;
   font-weight: 800;
-  font-size: clamp(60px, 8vw, 400px);
+  font-size: clamp(60px, 8.5vw, 400px);
   text-align: center;
   text-transform: uppercase;
   background-color: #ffffff;
@@ -100,7 +101,11 @@ export default function App() {
       <Video autoPlay loop muted>
         <source src={paint} type="video/mp4" />
       </Video>
-      <Name style={{ scaleY }}>Richard Schembri</Name>
+      <Name 
+        style={{ scaleY }}
+      >
+        <AnimatedText text={'Richard Schembri'} />
+      </Name>
       <Name
         style={{
           scaleY,
@@ -109,18 +114,28 @@ export default function App() {
           mixBlendMode: "multiply"
         }}
       >
-        Richard Schembri
+        <AnimatedText text={'Richard Schembri'} />
       </Name>
       <ContentBox>
         <Top />
         <Bottom />
       </ContentBox>
       <Contact />
-      <ArrowBox style={{ opacity }}>
+      <ArrowBox 
+        style={{ opacity }}
+        initial={{color: "#00000000"}}
+        animate={{color: "#000000"}}
+        transition={{delay: 1, duration: 2}}
+      >
         <UpArrow />
         <p>Projects</p>
       </ArrowBox>
-      <ArrowBox style={{opacity, top: "2300px"}}>
+      <ArrowBox 
+        style={{opacity, top: "2300px"}}
+        initial={{color: "#00000000"}}
+        animate={{color: "#000000"}}
+        transition={{delay: 1, duration: 2}}
+      >
         <DownArrow />
         <p>About</p>
       </ArrowBox>

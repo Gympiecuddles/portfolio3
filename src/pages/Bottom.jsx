@@ -27,8 +27,7 @@ const BottomBox = styled(motion.section)`
   }
 `;
 
-const MotionCard1 = motion.div;
-const Card1 = styled(MotionCard1)`
+const Card1 = styled(motion.div)`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -71,8 +70,7 @@ const Card1 = styled(MotionCard1)`
     }
 `;
 
-const MotionCard2 = motion.div;
-const Card2 = styled(MotionCard2)`
+const Card2 = styled(motion.div)`
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -112,8 +110,7 @@ const Card2 = styled(MotionCard2)`
     }
 `;
 
-const MotionCard3 = motion.div;
-const Card3 = styled(MotionCard3)`
+const Card3 = styled(motion.div)`
     position: absolute;
     width: 800px;
     height: 600px;
@@ -125,8 +122,7 @@ const Card3 = styled(MotionCard3)`
     z-index: 0;
     `;
 
-const MotionArrowBox = motion.div;
-const ArrowBox = styled(MotionArrowBox)`
+const ArrowBox = styled(motion.div)`
     position: absolute;
     display: flex;
     justify-content: center;
