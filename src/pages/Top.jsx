@@ -70,7 +70,7 @@ export default function Top() {
   const [angle3, setAngle3] = useState(0);
 
   //Tracking project info to show
-  const [projectTracker, setProjectTracker] = useState(null);
+  const [projectTracker, setProjectTracker] = useState(0);
 
   //FM varients based on state
   const BoxRotate1 = {

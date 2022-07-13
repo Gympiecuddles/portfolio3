@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { BsArrowUpLeft, BsArrowUpRight, BsArrowDownLeft, BsArrowDownRight } from 'react-icons/bs'
+import { GiDiamonds } from 'react-icons/gi';
+import '@fontsource/titillium-web/700.css';
 
 import me from '../assets/me.png';
 
 import Tech from './components/Tech'
 import Title from './components/Title'
-import Contact from "./components/Contact";
 
 const BottomBox = styled(motion.section)`
   display: flex;
@@ -23,6 +24,7 @@ const BottomBox = styled(motion.section)`
     align-self: flex-start;
     margin-top: 60px;
     font-size: 3em;
+    font-family: "Titillium Web", sans-serif;
     z-index: 0;
   }
 `;
@@ -77,8 +79,8 @@ const Card2 = styled(motion.div)`
     align-items: center;
     width: 800px;
     height: 600px;
-    background-color: #fff;
-    outline: 5px #006e5f solid;
+    background-color: #000000;
+    outline: 5px #fafdf3 solid;
     outline-offset: -20px;
     border-radius: 30px;
     box-shadow: 0 10px 50px 0 #e7e7e7;
@@ -91,22 +93,23 @@ const Card2 = styled(motion.div)`
       align-items: center;
       width: 200px;
       height: 50px;
-      outline: 2px #3d3c00 solid;
+      outline: 2px #fafdf3 solid;
       outline-offset: -7px;
       border-radius: 5px;
-      background-color: #006e5f;
+      background-color: #000000;
       z-index: 3;
       h4 {
         margin-top: 9px;
         margin-bottom: 5px;
         font-size: 20px;
-        color: #f2fedc;
+        color: #fafdf3;
       }
     }
     p {
       margin: 40px;
       margin-left: 50px;
       font-size: 17px;
+      color: #fafdf3;
     }
 `;
 
@@ -191,6 +194,10 @@ const ButtonBox = styled.div`
   }
 `
 
+const Diamond = styled(GiDiamonds)`
+  font-size: 14px;
+`;
+
 export default function Bottom() {
   const [isVisible, setIsVisible] = useState(true);
   const [ZIndex1, setZIndex1] = useState(false);
@@ -269,7 +276,7 @@ export default function Bottom() {
             animate={cardControls2}
           >
           <span>
-            <h4>Who am I?</h4>
+            <h4><Diamond /> Who am I? <Diamond /></h4>
           </span>          
           <p>
             South Florida based web developer, coding my way to Valhalla. 
@@ -306,7 +313,7 @@ export default function Bottom() {
           >
           <img src={me} alt="" draggable={false} />
           <span>
-            <h4>Richard Schembri</h4>
+            <h4><Diamond /> Richard Schembri <Diamond /></h4>
             <Title titleList={["Web Developer", "Software Engineer", "Programmer", "Coder"]} />
           </span>
         </Card1>

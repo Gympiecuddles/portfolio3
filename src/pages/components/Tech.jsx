@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { GiDiamonds } from 'react-icons/gi';
 
 const TechBox = styled.div`
     display: flex;
@@ -11,6 +12,7 @@ const TechBox = styled.div`
     outline: 5px #006e5f solid;
     outline-offset: -20px;
     border-radius: 30px;
+    background-color: #ffffff;
     span {
       display: flex;
       flex-direction: column;
@@ -53,15 +55,20 @@ const TechBox = styled.div`
         font-size: 14px;
         border: 1px #3d3c00 solid;
         border-radius: 5px;
+        background-color: #fcfff7;
       }
     }
+`;
+
+const Diamond = styled(GiDiamonds)`
+  font-size: 14px;
 `;
 
 export default function Tech() {
   return (
         <TechBox>
             <span>
-                <h4>Technologies</h4>
+                <h4><Diamond /> Technologies <Diamond /></h4>
             </span>
             <h5>Fundamental's</h5>
             <ul>
