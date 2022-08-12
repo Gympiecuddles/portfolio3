@@ -106,8 +106,9 @@ const Card2 = styled(motion.div)`
       }
     }
     p {
-      margin: 40px;
+      margin: 25px;
       margin-left: 50px;
+      margin-right: 50px;
       font-size: 17px;
       color: #fafdf3;
     }
@@ -278,26 +279,22 @@ export default function Bottom() {
           <span>
             <h4><Diamond /> Who am I? <Diamond /></h4>
           </span>          
-          <p>
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla.  
+          <p style={{marginTop: 65}}>
+            Hi I’m Richard! I am a 29-year-old South Florida native whose passion lies in creative, 
+            fun and intuitive web development. I am addicted to the process of creation through 
+            innovation and am motivated by the outcomes of my work. I draw inspiration from the more 
+            unique, eye-catching, and interactive components of development (AKA what I like to call ‘web candy’). 
           </p>
           <p>
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla.  
+            Growing up through the ranks of a start up HR/IT company pushed me to further hone my development 
+            skills and push the envelope for new and creative ways to display and deliver information. I’ve 
+            found a particular love for using React, Framer Motion, and React Three Fiber as these tools allow 
+            me to create seamless and timeless sites for clients.    
           </p>
           <p>
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla. 
-            South Florida based web developer, coding my way to Valhalla.  
+            I am now looking for a fun, creative, out-of-the-box group to work with on building the new 
+            generation of innovative websites. I look forward to applying my skill set and passions to projects 
+            while also maintaining a growth mindset to keep my mind sharp and my skills sharper. 
           </p>
         </Card2> 
         <Card1 

@@ -60,7 +60,8 @@ export default function Contact() {
     const bottom = useTransform(scrollYProgress, [0, .34, .38], [170, 570, 0]);
     const opacity = useTransform(scrollYProgress, [0, .33, .34, .38, .39, .41], [1, 1, 0, 0, .5, 1]);
 
-    //Change transition of svgMotion after 2s
+    //Change transition of svgMotion after 2snpm run dev
+    
     useEffect(() => {
       setTimeout(Object.assign(svgMotion, updateSvgMotion), "2000")
     })

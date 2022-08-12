@@ -44,7 +44,7 @@ const TechBox = styled.div`
       display: flex;
       justify-content: center;
       li {
-        margin-right: 45px;
+        margin-right: 40px;
         padding: 11px;
         width: 400px;
         height: 90px;
@@ -52,6 +52,7 @@ const TechBox = styled.div`
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        text-align: center;
         font-size: 14px;
         border: 1px #3d3c00 solid;
         border-radius: 5px;
@@ -216,22 +217,52 @@ export default function Tech() {
                 Styled Components
               </li>
               <li>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="75"
-                viewBox="0 0 126 126"
-              >
-                <motion.path
-                  d="M0 122V0l61 61 61-61v122L91.5 91.5 61 122 30.5 91.5z"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0, opacity: .5, scale: .8 }}
-                  animate={{ pathLength: 1, opacity: 1, scale: 1 }}
-                  transition={{ default: {duration: 2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut"}, 
-                  fill: { duration: 2, repeat: Infinity, repeatType: "mirror", ease: [1, 0, 0.8, 1]}}}
-                ></motion.path>
-              </svg>
-                Framer Motion
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="75"
+                  viewBox="0 0 126 126"
+                >
+                  <motion.path
+                    d="M0 122V0l61 61 61-61v122L91.5 91.5 61 122 30.5 91.5z"
+                    strokeWidth="2"
+                    initial={{ pathLength: 0, opacity: .5, scale: .8 }}
+                    animate={{ pathLength: 1, opacity: 1, scale: 1 }}
+                    transition={{ default: {duration: 2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut"}, 
+                    fill: { duration: 2, repeat: Infinity, repeatType: "mirror", ease: [1, 0, 0.8, 1]}}}
+                  ></motion.path>
+                </svg>
+                  Framer Motion
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="75"
+                  fill="none"
+                  viewBox="27 26 173.23 174.94"
+                >
+                  <g
+                    fillRule="evenodd"
+                    stroke="#000"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="10"
+                    strokeWidth="4"
+                    clipRule="evenodd"
+                  >
+                    <motion.path 
+                      d="M70.213 200.94L27 26l173.23 49.874z"
+                      stroke="#000000"
+                      strokeWidth="4"
+                      initial={{ pathLength: 0, opacity: 0}}
+                      animate={{ pathLength: 1, opacity: 1}}
+                      transition={{ default: {duration: 2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut"}}}
+                    ></motion.path>
+                    <path d="M113.583 50.942l21.591 87.496-86.567-24.945z"></path>
+                    <path d="M92.103 125.36L81.379 81.895l43.008 12.346zM70.651 38.483l10.724 43.465-43.008-12.346zm86.012 24.777l10.724 43.465-43.008-12.346zm-64.555 62.13l10.724 43.465-43.008-12.346z"></path>
+                  </g>
+                </svg>
+                  Three.js
               </li>
             </ul>
             <h5>Tool's</h5>
