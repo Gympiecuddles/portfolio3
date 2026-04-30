@@ -7,20 +7,33 @@ import ProjectVids from './components/ProjectVids';
 import ProjectInfo from './components/ProjectInfo'
 
 //styles
+let ballSize;
+let smallBallSize;
+let smallBallRotationSize;
+if (window.innerWidth > (window.innerHeight * 1.4)) {
+    ballSize = "100vh";
+    smallBallRotationSize = "75vh";
+    smallBallSize = "150px";
+} else {
+    ballSize = "54vw";
+    smallBallRotationSize = "42vw";
+    smallBallSize = "100px";
+}
+
 const TopBox = styled(motion.section)`
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 1100px;
+  height: ${ballSize};
   z-index: 2;
   span {
     order: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1100px;
-    height: 1100px;
+    width: ${ballSize};
+    height: ${ballSize};
     background: rgba( 255, 255, 255, 0.2 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13px );
@@ -31,14 +44,14 @@ const TopBox = styled(motion.section)`
 
 const Projects = styled(motion.div)`
   position: absolute;
-  width: 1000px;
-  height: 150px;
+  width: ${smallBallRotationSize};
+  height: ${smallBallRotationSize};
   background-color: #ffffff00;
   transform: rotate(0deg);
   z-index: 1;
   p {
-    width: 150px;
-    height: 150px;
+    width: ${smallBallSize};
+    height: ${smallBallSize};
     border-radius: 50%;
     background-color: #f1f7e6;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -50,6 +63,7 @@ const Projects = styled(motion.div)`
       width:100%;
       height:100%;
       border-radius: 50%;
+      text-align : center;
       font-style: normal;
       background-color: #f1f7e6;
       cursor: pointer;
@@ -141,7 +155,7 @@ export default function Top() {
                 <motion.i 
                   whileHover={{color: "#ffffff", backgroundColor: "#070a00", scale: 1.1}}
                   whileTap={click1}
-                  >Nick's Garage
+                  >Dominion DMS
                 </motion.i>
           </motion.p>
         </Projects>
@@ -157,7 +171,7 @@ export default function Top() {
                 <motion.i 
                   whileHover={{color: "#ffffff", backgroundColor: "#070a00", scale: 1.1}}
                   whileTap={click2}
-                  >Twisted Thread
+                  >HRIS Team
                 </motion.i>
             </motion.p>
         </Projects>
@@ -173,7 +187,7 @@ export default function Top() {
                 <motion.i 
                   whileHover={{color: "#ffffff", backgroundColor: "#070a00", scale: 1.1}}
                   whileTap={click3}
-                  >HRIS Team
+                  >One Night Window
                 </motion.i>
             </motion.p>
         </Projects>

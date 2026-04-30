@@ -3,14 +3,23 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import paint from '../../assets/paint.webm';
-import noise from '../../assets/noise.mp4';
+import DMSVid from '../../assets/DominionDms.mp4';
+import HRISVid from '../../assets/HrisTeam.mp4';
+import ONWVid from '../../assets/OneNightWindow.mp4';
+
+let ballSize;
+if (window.innerWidth > (window.innerHeight * 1.4)) {
+    ballSize = "100vh";
+} else {
+    ballSize = "54vw";
+}
 
 const CircleVid = styled(motion.video)`
-    width: 1100px;
-    height: 1100px;
+    width: ${ballSize};
+    height: ${ballSize};
     border-radius: 50%;
-    object-fit: cover;
-    filter: brightness(50%);
+    object-fit: fill;
+    filter: brightness(90%);
     z-index: 0;
 `;
 
@@ -37,7 +46,7 @@ const Video1 = () => {
             autoPlay 
             loop 
             mute>
-            <source src={paint} type="video/webm" />
+            <source src={DMSVid} type="video/mp4" />
         </CircleVid>
     )
 }
@@ -51,7 +60,7 @@ const Video2 = () => {
         autoPlay 
         loop 
         mute>
-            <source src={noise} type="video/webm" />
+            <source src={HRISVid} type="video/mp4" />
         </CircleVid>
     )
 }
@@ -65,7 +74,7 @@ const Video3 = () => {
         autoPlay 
         loop 
         mute>
-            <source src={paint} type="video/webm" />
+            <source src={ONWVid} type="video/mp4" />
         </CircleVid>
     )
 }

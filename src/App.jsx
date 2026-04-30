@@ -92,8 +92,19 @@ export default function App() {
   const opacity = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0, 1, 0]);
   
   //website opens at proper place
+  const body = document.body;
+  const html = document.documentElement;
+
+  const pageHeight = Math.max(
+    body.scrollHeight, 
+    body.offsetHeight, 
+    html.clientHeight, 
+    html.scrollHeight, 
+    html.offsetHeight
+  );
+
   window.onload = () => {
-    window.scrollTo( 0, 1060 );
+    window.scrollTo( 0, pageHeight * 0.775);
   };
 
   return (

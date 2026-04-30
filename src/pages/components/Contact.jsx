@@ -14,8 +14,8 @@ const EmailBox = styled(motion.a)`
     z-index: 2;
     cursor: pointer;
     p {
-        position: absolute;
-        bottom: 100px;
+        position: fixed;
+        bottom: 0px;
         right: 0px;
         font-size: 18px;
         color: black;
@@ -26,9 +26,10 @@ const EmailBox = styled(motion.a)`
 `;
 
 const SocialBox = styled(motion.div)`
-    position: absolute;
+    position: fixed;
+    bottom: 0;
     left: 0;
-    top: 47.3%;
+    //top: 47.3%;
     display: flex;
     flex-direction: column;
     z-index: 2;
@@ -56,14 +57,19 @@ const pMotion = {
 
 export default function Contact() {
     const { scrollYProgress } = useViewportScroll();
-    const top = useTransform(scrollYProgress, [0, .5, 1], [1160, 1660, 2120]);
-    const bottom = useTransform(scrollYProgress, [0, .34, .38], [170, 570, 0]);
+
+    let windowHeight = window.innerHeight;
+    let windowWidth = window.innerWidth;
+    let wideScreenCheck = windowWidth * .5 > windowHeight ? true : false;
+    //const top = useTransform(scrollYProgress, [0, .5, 1], [windowHeight, 1590, 2120]);
+    const bottom = useTransform(scrollYProgress, 
+      [0, .34, .38], [wideScreenCheck ? windowHeight * 0.17 : windowHeight * 0.12, 570, 0]);
     const opacity = useTransform(scrollYProgress, [0, .33, .34, .38, .39, .41], [1, 1, 0, 0, .5, 1]);
 
     //Change transition of svgMotion after 2snpm run dev
     
     useEffect(() => {
-      setTimeout(Object.assign(svgMotion, updateSvgMotion), "2000")
+      setTimeout(() => Object.assign(svgMotion, updateSvgMotion), 2000)
     })
 
     return (
@@ -90,7 +96,7 @@ export default function Contact() {
           </motion.svg>
           <motion.p variants={pMotion}>Say Hi</motion.p>
       </EmailBox>
-      <SocialBox style={{top}} initial={{opacity: 0}} animate={{opacity:1}} transition={{delay: 1, duration: 2}} >
+      <SocialBox /*</>style={{top}}*/ initial={{opacity: 0}} animate={{opacity:1}} transition={{delay: 1, duration: 2}} >
         <motion.a 
           href="https://github.com/Gympiecuddles" 
           target="_blank"

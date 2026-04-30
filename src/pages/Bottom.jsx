@@ -5,7 +5,7 @@ import { BsArrowUpLeft, BsArrowUpRight, BsArrowDownLeft, BsArrowDownRight } from
 import { GiDiamonds } from 'react-icons/gi';
 import '@fontsource/titillium-web/700.css';
 
-import me from '../assets/me.png';
+import me from '../assets/me-v4.png';
 
 import Tech from './components/Tech'
 import Title from './components/Title'
@@ -16,7 +16,7 @@ const BottomBox = styled(motion.section)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 1000px;
+  height: 100vh;
   background-color: #e9f0dd60;
   border-radius: 10px;
   z-index: 2;
@@ -33,8 +33,8 @@ const Card1 = styled(motion.div)`
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 800px;
-    height: 600px;
+    width: 33vw;
+    height: 60vh;
     background-color: #fff;
     outline: 5px #006e5f solid;
     outline-offset: -20px;
@@ -46,10 +46,10 @@ const Card1 = styled(motion.div)`
     img {
       position: absolute;
       bottom: 0;
-      width: 450px;
-      height: 680px;
+      width: 30vw;
+      height: 70vh;
       object-fit: cover;
-      object-position: -37px 10px;
+      object-position: 0px 10px;
     }
     span {
       position: absolute;
@@ -77,8 +77,8 @@ const Card2 = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 800px;
-    height: 600px;
+    width: 33vw;
+    height: 60vh;
     background-color: #000000;
     outline: 5px #fafdf3 solid;
     outline-offset: -20px;
@@ -106,18 +106,19 @@ const Card2 = styled(motion.div)`
       }
     }
     p {
-      margin: 25px;
+      margin: 1.5vh;
       margin-left: 50px;
       margin-right: 50px;
-      font-size: 17px;
+      font-size: 1.1vw;
+      line-height: 1.6vw;
       color: #fafdf3;
     }
 `;
 
 const Card3 = styled(motion.div)`
     position: absolute;
-    width: 800px;
-    height: 600px;
+    width: 33vw;
+    height: 60vh;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 10px 50px 0 #e7e7e7;
@@ -130,8 +131,8 @@ const ArrowBox = styled(motion.div)`
     position: absolute;
     display: flex;
     justify-content: center;
-    width: 800px;
-    height: 600px;
+    width: 35vw;
+    height: 60vh;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 10px 50px 0 #e7e7e7;
@@ -223,10 +224,13 @@ export default function Bottom() {
     setZIndex3(false);
   }
 
+  let screenWidth = window.innerWidth;
+  let thirdScreenWidth = screenWidth / 3;
+
   const handleClickDisplay = () => {
-    cardControls1.start({ x: -810, y: 0 });
+    cardControls1.start({ x: -thirdScreenWidth, y: 0 });
     cardControls2.start({ x: 0, y: 0 });
-    cardControls3.start({ x: 810, y: 0 });
+    cardControls3.start({ x: thirdScreenWidth, y: 0 });
   }
 
   return (
@@ -279,22 +283,19 @@ export default function Bottom() {
           <span>
             <h4><Diamond /> Who am I? <Diamond /></h4>
           </span>          
-          <p style={{marginTop: 65}}>
-            Hi I’m Richard! I am a 29-year-old South Florida native whose passion lies in creative, 
-            fun and intuitive web development. I am addicted to the process of creation through 
-            innovation and am motivated by the outcomes of my work. I draw inspiration from the more 
-            unique, eye-catching, and interactive components of development (AKA what I like to call ‘web candy’). 
+          <p style={{marginTop: "2vh"}}>
+            Hi, I’m Richard — a full-stack developer who enjoys building things that actually work and look good.
+             I’ve spent the last few years developing enterprise applications, working across Vue, React, C#,
+              and SQL to deliver reliable, scalable features in complex systems.
           </p>
           <p>
-            Growing up through the ranks of a start up HR/IT company pushed me to further hone my development 
-            skills and push the envelope for new and creative ways to display and deliver information. I’ve 
-            found a particular love for using React, Framer Motion, and React Three Fiber as these tools allow 
-            me to create seamless and timeless sites for clients.    
+            I like digging into tough problems, cleaning up messy code, and collaborating with teams to ship solid 
+            products. At the same time, I still have a soft spot for creative, interactive UI — the kind that
+             makes users stop and pay attention.  
           </p>
           <p>
-            I am now looking for a fun, creative, out-of-the-box group to work with on building the new 
-            generation of innovative websites. I look forward to applying my skill set and passions to projects 
-            while also maintaining a growth mindset to keep my mind sharp and my skills sharper. 
+            I’m always looking for opportunities to build meaningful software, push my skills further, and create
+             things I’m proud of.
           </p>
         </Card2> 
         <Card1 
