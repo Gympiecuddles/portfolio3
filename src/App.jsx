@@ -64,7 +64,7 @@ const StyledArrowBox = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  top: 1080px;
+  top: 90vh;
   left: 0;
   width: 200px;
   height: 100px;
