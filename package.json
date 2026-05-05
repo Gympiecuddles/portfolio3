@@ -1,7 +1,8 @@
 {
   "name": "portfolio3",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "homepage": "https://github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
